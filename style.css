@@ -102,7 +102,9 @@ a {
 .block {
   margin-bottom: 50px;
 }
-
+.block-body {
+  margin: 0 auto;
+}
 .block-centered {
   text-align: center;
 }
@@ -287,6 +289,9 @@ select {
   padding: 50px 0;
   background: no-repeat top left / 80vh auto url(img/news-bg.jpg);
 }
+.recipes-list-item p:hover {
+  text-decoration: underline;
+}
 .recipes-list {
   font-weight: 300;
   font-size: 1.125rem;
@@ -332,7 +337,7 @@ select {
   display: block;
 }
 .footer {
-  background: #383838;
+  background: #383838 bottom right no-repeat fixed;
   font-weight: 300;
   color: #fff;
   padding: 40px 0;
@@ -357,6 +362,99 @@ select {
 }
 .footer-credits span {
   font-weight: bold;
+}
+/* recipe-page */
+.header-recipes {
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.92),
+      rgba(54, 54, 54, 0.5) 39.24%,
+      rgba(28, 28, 28, 0.4)
+    ),
+    url(img/salad-chicken.jpg) center center / cover no-repeat;
+
+  color: #fff;
+}
+.section-overflow {
+  padding: 20px 0;
+}
+.block-ingredients {
+  border: 1px solid #c89446;
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 35px 20px;
+  font-weight: 600;
+  color: #383838;
+}
+.block-ingredients ul {
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  width: 210px;
+}
+.block-ingredients span {
+  width: 35px;
+  text-align: right;
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: 300;
+}
+.block-ingredients li {
+  padding: 5px 0;
+}
+.block-video {
+  margin: 0 auto;
+  max-width: 540px;
+  background: #383838;
+  position: relative;
+}
+.block-video::after {
+  content: "";
+  background: url(img/play.png) center center no-repeat;
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  top: calc(50% - 31px);
+  left: calc(50% - 31px);
+  transition: transform 0.3s;
+}
+.block-video:hover::after {
+  transform: scale(1.2);
+}
+.block-video img {
+  max-width: 100%;
+  box-shadow: 0 0 30px rgba(128, 128, 128, 0.5);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.block-video img:hover {
+  opacity: 0.8;
+}
+.recipes-mosaic p {
+  margin: 0;
+}
+.pagination {
+  list-style: none;
+  margin: 30px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+.pagination li {
+  display: inline-block;
+}
+.pagination a {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border: 1px solid #c89446;
+  border-radius: 7px;
+  transition: background-color 0.3s;
+  margin: 0 10px;
+}
+.pagination .active,
+.pagination a:hover {
+  background: #c89446;
 }
 
 @media only screen and (min-width: 600px) {
@@ -426,7 +524,7 @@ select {
     margin-top: 65px;
   }
 }
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: 860px) {
   .block {
     margin-bottom: 100px;
   }
@@ -520,12 +618,12 @@ select {
     margin-bottom: 110px;
     width: calc(50% - 35px);
   }
-  .menu-summary-item:nth-child(even) {
+  .menu-summary .menu-summary-item:nth-child(even) {
     text-align: right;
     padding-left: 0;
     padding-right: 192px;
   }
-  .menu-summary-item:nth-child(even) .menu-summary-img {
+  .menu-summary .menu-summary-item:nth-child(even) .menu-summary-img {
     left: auto;
     right: 0;
   }
@@ -598,6 +696,9 @@ select {
   .recipes-list-item:last-child {
     padding-bottom: 0;
   }
+  .footer {
+    background-image: url(img/splash.png);
+  }
   .footer-columns {
     display: flex;
     justify-content: space-between;
@@ -613,5 +714,52 @@ select {
   .footer-column:last-child {
     margin-right: 0;
     flex: none;
+  }
+  .section-overflow {
+    padding: 0;
+    margin-top: -20px;
+  }
+  .block-ingredients {
+    border: 1px solid #c89446;
+    padding: 35px 40px;
+    width: 350px;
+  }
+  .block-ingredients ul {
+    width: 240px;
+  }
+  .block-ingredients span {
+    width: 35px;
+    margin-right: 50px;
+  }
+  .block-ingredients li {
+    padding: 10px 0;
+  }
+  .block-right .block-video {
+    width: 540px;
+    flex: none;
+    margin-right: 30px;
+    order: 2;
+  }
+  .section-overflow .last-block {
+    margin-bottom: 50px;
+  }
+
+  .recipes-mosaic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: -60px;
+  }
+  .recipes-mosaic .menu-summary-item {
+    width: calc(50% - 25px);
+    margin-bottom: 60px;
+    font-size: 0.875rem;
+    padding-left: 150px;
+  }
+  .recipes-mosaic .menu-summary-img {
+    width: 125px;
+  }
+  .pagination {
+    margin: 80px 0;
   }
 }
